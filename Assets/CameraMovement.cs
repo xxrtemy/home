@@ -17,6 +17,10 @@ public class CameraMovement : MonoBehaviour
         var xRot = Input.GetAxis("Mouse X");
         var yRot = Input.GetAxis("Mouse Y");
 
+        y -= yRot;
+        y = Mathf.Clamp(y, -80, 70);
+
         Playerbody.Rotate(new Vector3(0, xRot * MouseSensetivity, 0));
+        transform.localRotation = Quaternion.Euler(y * MouseSensetivity, 0, 0);
     }
 }
