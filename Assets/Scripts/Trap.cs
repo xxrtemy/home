@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trao : MonoBehaviour
+public class Trap : MonoBehaviour
 {
     [SerializeField] float Damage;
     [SerializeField] float DamagePerSecond;
