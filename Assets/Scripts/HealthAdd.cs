@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealthAdd : MonoBehaviour
 {
 
+    [SerializeField] ParticleSystem _particleSystem;
     [SerializeField] float Health;
     private HealthController trappedHealthController;
     private void OnTriggerEnter(Collider other)
@@ -13,8 +14,14 @@ public class HealthAdd : MonoBehaviour
         {
             trappedHealthController = other.gameObject.GetComponent<HealthController>();
             trappedHealthController.GetHealth(Health);
-            Debug.Log(trappedHealthController.CurrentHealth);
+            _particleSystem.Play();
         }
-        Destroy(gameObject);
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

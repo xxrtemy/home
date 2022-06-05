@@ -18,6 +18,6 @@ public class HealthBar : MonoBehaviour
      void OnHealthChanged(float health)
     {
         Image.fillAmount = health / _maxhealth;
-        Text.text =health.ToString();
+        Text.text = health.ToString();
     }
 }
